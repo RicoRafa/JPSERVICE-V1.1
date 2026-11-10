@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICCOSS | COMIDAS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href ="styles.css">
+</head>
+<body>
+<header>
+  <a class="back-link" href="index.html">VOLVER</a>
+</header>
+
+<h1 class="page-title">COMIDAS</h1>
+
+<div class="grid">
+
+        <div class="card" id="card-0" data-price="95.0">
+          <div class="img-placeholder">
+            <img src="assets/Tacos.png" alt="Imagen de tacos">
+          </div>
+          <h3 class="item-name">Tacos al Pastor</h3>
+          <p class="item-desc">Orden de 3 tacos con piña, cilantro, cebolla y salsa de la casa.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(0, -1)">−</button>
+              <span id="qty-0">1</span>
+              <button type="button" onclick="changeQty(0, 1)">+</button>
+            </div>
+            <span class="price" id="price-0">$95.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-0" onclick="orderItem(0, 'Tacos al Pastor')">Ordenar</button>
+        </div>
+
+        <div class="card" id="card-1" data-price="110.0">
+          <div class="img-placeholder">
+            <img src="assets/enchiladas.png" alt="Imagen">
+          </div>
+          <h3 class="item-name">Enchiladas Verdes</h3>
+          <p class="item-desc">Tortillas rellenas de pollo bañadas en salsa verde, crema y queso.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(1, -1)">−</button>
+              <span id="qty-1">1</span>
+              <button type="button" onclick="changeQty(1, 1)">+</button>
+            </div>
+            <span class="price" id="price-1">$110.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-1" onclick="orderItem(1, 'Enchiladas Verdes')">Ordenar</button>
+        </div>
+
+        <div class="card" id="card-2" data-price="85.0">
+          <div class="img-placeholder">
+            <img src="assets/guuacamole.png" alt="Imagen">
+          </div>
+          <h3 class="item-name">Guacamole con Totopos</h3>
+          <p class="item-desc">Aguacate fresco machacado al momento con totopos de maíz.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(2, -1)">−</button>
+              <span id="qty-2">1</span>
+              <button type="button" onclick="changeQty(2, 1)">+</button>
+            </div>
+            <span class="price" id="price-2">$85.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-2" onclick="orderItem(2, 'Guacamole con Totopos')">Ordenar</button>
+        </div>
+
+        <div class="card" id="card-3" data-price="90.0">
+          <div class="img-placeholder">
+            <img src="assets/quesadilla.png" alt="Imagen">
+          </div>
+          <h3 class="item-name">Quesadillas de Flor de Calabaza</h3>
+          <p class="item-desc">Tortilla hecha a mano rellena de flor de calabaza y queso Oaxaca.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(3, -1)">−</button>
+              <span id="qty-3">1</span>
+              <button type="button" onclick="changeQty(3, 1)">+</button>
+            </div>
+            <span class="price" id="price-3">$90.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-3" onclick="orderItem(3, 'Quesadillas de Flor de Calabaza')">Ordenar</button>
+        </div>
+
+        <div class="card" id="card-4" data-price="105.0">
+          <div class="img-placeholder">
+            <img src="assets/ensalada.png" alt="Imagen de ensalada">
+          </div>
+          <h3 class="item-name">Ensalada César con Pollo</h3>
+          <p class="item-desc">Lechuga romana, pollo a la plancha, aderezo César y crutones.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(4, -1)">−</button>
+              <span id="qty-4">1</span>
+              <button type="button" onclick="changeQty(4, 1)">+</button>
+            </div>
+            <span class="price" id="price-4">$105.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-4" onclick="orderItem(4, 'Ensalada César con Pollo')">Ordenar</button>
+        </div>
+</div>
+  <script src ="restaurante.js"></script>
+</body>
+</html>

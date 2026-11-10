@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RICCOSS · Pedidos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#e3e3e3;
+  --ink:#161616;
+  --card:#ffffff;
+  --accent:#c0392b;
+  --muted:#6b6b6b;
+  --pending:#b8860b;
+  --ready:#2e7d32;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+}
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:28px 40px;
+}
+.back-link{
+  font-family:'Anton',sans-serif;
+  letter-spacing:1.5px;
+  color:var(--ink);
+  text-decoration:none;
+  font-size:19px;
+  transition:opacity .15s ease;
+}
+.back-link:hover{ text-decoration:none; opacity:.6; }
+
+.live-tag{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:'Anton',sans-serif;
+  letter-spacing:1px;
+  font-size:14px;
+  color:var(--muted);
+}
+.live-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#bbb;
+}
+
+h1.page-title{
+  font-family:'Anton',sans-serif;
+  text-align:center;
+  font-size:56px;
+  letter-spacing:2px;
+  margin:0 0 4px 0;
+}
+p.page-sub{
+  text-align:center;
+  color:var(--muted);
+  font-size:15px;
+  margin:0 0 50px 0;
+}
+
+.panel{
+  max-width:760px;
+  margin:0 auto 70px auto;
+  padding:0 40px;
+}
+
+.panel-card{
+  background:var(--card);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:22px;
+}
+.panel-head h2{
+  font-family:'Anton',sans-serif;
+  font-size:20px;
+  letter-spacing:.5px;
+  margin:0;
+}
+.demo-btn{
+  border:1.5px solid var(--ink);
+  background:transparent;
+  color:var(--ink);
+  font-family:'Anton',sans-serif;
+  letter-spacing:.5px;
+  font-size:12.5px;
+  padding:8px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.demo-btn:hover{ background:var(--ink); color:#fff; }
+
+#orders-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.empty-state{
+  text-align:center;
+  padding:50px 20px;
+  border:1.5px dashed #cfcfcf;
+  border-radius:12px;
+  color:var(--muted);
+}
+.empty-state .emoji{ font-size:38px; display:block; margin-bottom:12px; }
+.empty-state p{ margin:0; font-size:14px; line-height:1.6; }
+
+.order-card{
+  border:1.5px solid #ececec;
+  border-radius:12px;
+  padding:18px 20px;
+  animation:fadeIn .25s ease;
+}
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(6px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.order-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.order-id{
+  font-family:'Anton',sans-serif;
+  font-size:15px;
+  letter-spacing:.5px;
+}
+.order-meta{
+  font-size:12.5px;
+  color:var(--muted);
+  margin-top:2px;
+}
+.status-badge{
+  font-family:'Anton',sans-serif;
+  font-size:11px;
+  letter-spacing:.5px;
+  padding:5px 10px;
+  border-radius:20px;
+  color:#fff;
+  background:var(--pending);
+  white-space:nowrap;
+}
+.status-badge.ready{ background:var(--ready); }
+
+.order-items{
+  list-style:none;
+  margin:0 0 12px 0;
+  padding:0;
+  border-top:1px solid #f0f0f0;
+  border-bottom:1px solid #f0f0f0;
+}
+.order-items li{
+  display:flex;
+  justify-content:space-between;
+  font-size:13.5px;
+  padding:8px 0;
+}
+.order-items li + li{ border-top:1px dashed #f0f0f0; }
+.order-items .qty{ color:var(--muted); margin-right:6px; }
+
+.order-total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.order-total span:first-child{
+  font-size:13px;
+  color:var(--muted);
+}
+.order-total span:last-child{
+  font-family:'Anton',sans-serif;
+  font-size:18px;
+  color:var(--accent);
+}
+
+@media (max-width:480px){
+  header{ padding:20px; }
+  h1.page-title{ font-size:38px; }
+  .panel{ padding:0 20px; }
+  .panel-card{ padding:20px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="back-link" href="index.html">VOLVER</a>
+  <div class="live-tag"><span class="live-dot"></span> ESPERANDO PEDIDOS</div>
+</header>
+
+<h1 class="page-title">PEDIDOS</h1>
+
+<div class="panel">
+  <div class="panel-card">
+    <div class="panel-head">
+      <h2>Pedidos recientes</h2>
+      <button class="demo-btn" onclick="toggleDemo()">Ver ejemplo</button>
+    </div>
+
+    <div id="orders-list">
+      <div class="empty-state" id="empty-state">
+        <span class="emoji">🧾</span>
+        <p>Aún no hay pedidos.<br>En cuanto un cliente oprima "Ordenar" en Bebidas, Comidas o Postres, aparecerá aquí.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src ="restaurante.js"></script>
+</body>
+</html>

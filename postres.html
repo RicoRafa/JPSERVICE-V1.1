@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICCOSS | POSTRES</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel ="stylesheet" href ="styles.css">
+</head>
+<body>
+<header>
+  <a class="back-link" href="index.html">VOLVER</a>
+  <h1 class="page-title">POSTRES</h1>
+</header>
+
+<div class="grid">
+
+        <div class="card" id="card-0" data-price="75.0">
+          <div class="img-placeholder">
+            <img src="assets/pastel.png" alt="Imagen">
+          </div>
+          <h3 class="item-name">Pastel de Chocolate</h3>
+          <p class="item-desc">Bizcocho húmedo de chocolate con ganache y un toque de sal de mar.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(0, -1)">−</button>
+              <span id="qty-0">1</span>
+              <button type="button" onclick="changeQty(0, 1)">+</button>
+            </div>
+            <span class="price" id="price-0">$75.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-0" onclick="orderItem(0, 'Pastel de Chocolate')">Ordenar</button>
+        </div>
+
+        <div class="card" id="card-1" data-price="65.0">
+          <div class="img-placeholder">
+            <img src="assets/flan.png" alt="Imagen">
+          </div>
+          <h3 class="item-name">Flan Napolitano</h3>
+          <p class="item-desc">Flan cremoso bañado en caramelo, receta tradicional.</p>
+          <div class="qty-row">
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(1, -1)">−</button>
+              <span id="qty-1">1</span>
+              <button type="button" onclick="changeQty(1, 1)">+</button>
+            </div>
+            <span class="price" id="price-1">$65.00</span>
+          </div>
+          <button type="button" class="order-btn" id="btn-1" onclick="orderItem(1, 'Flan Napolitano')">Ordenar</button>
+        </div>
+</div>
+  <script src ="restaurante.js"></script>
+</body>
+</html>
